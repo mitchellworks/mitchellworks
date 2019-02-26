@@ -1,0 +1,175 @@
+/* 
+    Created on : Feb 19, 2019, 3:44:06 PM
+    Author     : Amber Mitchell
+*/
+body {
+  background-color: #77aabb;
+  color: white;
+  font-family: "Indie Flower", sans-serif;
+  font-size: 1em;
+  letter-spacing: 2px; }
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0; }
+
+h2 {
+  font-size: 1.4em;
+  margin: 0; }
+
+h3 {
+  font-size: 1.2em;
+  white-space: nowrap; }
+
+i.fas {
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+  font-size: 8vh;
+  color: #225566; }
+  i.fas:nth-of-type(even) {
+    color: #bbeeff;
+    top: 20px; }
+  @media (max-width: 768px) {
+    i.fas {
+      font-size: 10vw;
+      padding: 2px; } }
+  i.fas.on {
+    animation-name: on;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+
+#ai2 i.on {
+  animation-delay: 1s; }
+
+#human i.on {
+  animation-delay: 2s; }
+
+@keyframes on {
+  0% {
+    transform: rotate(0deg) scale(1); }
+  25% {
+    transform: rotate(20deg) scale(1.1); }
+  75% {
+    transform: rotate(-20deg) scale(0.9); }
+  100% {
+    transform: rotate(0deg) scale(1); } }
+#canvas {
+  display: grid;
+  grd-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "left right" "middle middle" "bottom bottom";
+  width: 99vw;
+  place-items: center;
+  place-content: center;
+  row-gap: 20px; }
+  #canvas > div {
+    text-align: center; }
+  #canvas #ai1 {
+    grid-area: left; }
+  #canvas #ai2 {
+    grid-area: right; }
+  #canvas #human {
+    grid-area: middle; }
+  #canvas #GameBoard {
+    grid-area: bottom;
+    border-top: 2px solid #336677;
+    margin-top: 5vh;
+    padding-top: 3vh; }
+  #canvas #Stuff {
+    display: flex; }
+    #canvas #Stuff .left,
+    #canvas #Stuff .right {
+      width: auto; }
+    #canvas #Stuff .right {
+      text-align: right;
+      max-width: 55%;
+      padding: 1vh 2vw;
+      margin-left: 10px;
+      border-radius: 10px;
+      border: 10px solid #447788; }
+      #canvas #Stuff .right h3 {
+        text-align: center;
+        margin-bottom: 10px; }
+      #canvas #Stuff .right player,
+      #canvas #Stuff .right bid {
+        display: inline-block; }
+    @media (max-width: 768px) {
+      #canvas #Stuff {
+        display: block; }
+        #canvas #Stuff .right {
+          max-width: 80%; } }
+
+button {
+  font-size: 1.2em;
+  white-space: nowrap;
+  margin: 10px;
+  padding: 0.5vh 4vw;
+  border-radius: 10px;
+  background-color: #336677;
+  color: white;
+  border: 3px solid #003344;
+  font-family: "Indie Flower", sans-serif;
+  letter-spacing: 2px;
+  cursor: pointer; }
+  button:hover {
+    background-color: #447788; }
+
+select {
+  background-color: #336677;
+  border: #003344;
+  color: white;
+  padding: 1vh 2vw;
+  border-radius: 10px; }
+  select:hover {
+    background-color: #447788; }
+
+alert {
+  display: block;
+  background-color: red;
+  padding-left: 4px; }
+  alert.on {
+    animation-name: on;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+
+#modalWrap {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+  #modalWrap.active {
+    display: block; }
+  #modalWrap #modal {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #bbeeff;
+    border: 4px solid black;
+    color: black;
+    padding: 20px; }
+
+@keyframes highlight {
+  0% {
+    background: #ffffff; }
+  100% {
+    background: none; } }
+.highlight {
+  animation: highlight 2s; }
+
+.disabled {
+  cursor: default;
+  background-color: #77aabb;
+  border-color: #447788; }
+  .disabled:hover {
+    background-color: #77aabb; }
+
+.hidden {
+  display: none !important; }
